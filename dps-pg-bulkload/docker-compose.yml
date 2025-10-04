@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  db:
+    build: .
+    container_name: pg14_bulkload
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data   # database data (named volume, persisted)
+      - ./Assignment-1:/reddit-dps                # bind mount host folder into container
+volumes:
+  pgdata:
