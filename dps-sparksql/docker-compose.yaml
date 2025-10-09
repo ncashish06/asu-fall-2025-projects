@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    build: .
+    container_name: dps_spark_scala
+    volumes:
+      - spark_scala:/var/lib/spark/data   
+      - ./data:/spark_scala_data  
+    command: tail -f /dev/null 
+volumes:
+  spark_scala:
