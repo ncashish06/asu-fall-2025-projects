@@ -1,0 +1,1 @@
+FROM veedata/cse511-assignment3:latest

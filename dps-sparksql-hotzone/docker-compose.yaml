@@ -1,0 +1,12 @@
+# version: "3.8" 
+# The version attribute in Docker Compose files has been marked as obsolete starting with Docker Compose v2.0. 
+# This is because Docker Compose now uses a unified schema that does not require specifying a version. 
+# Instead, it automatically interprets the configuration based on the features used in the file.
+services:
+  db:
+    build: .
+    container_name: dps_spark_hotzone
+    volumes:
+      - ./Assignment3:/root/cse511/src/main/scala
+      - ./hotcell-analysis-dataset/yellow_tripdata_2009-01_point.csv:/root/cse511/src/resources/yellow_tripdata_2009-01_point.csv
+    command: tail -f /dev/null 
