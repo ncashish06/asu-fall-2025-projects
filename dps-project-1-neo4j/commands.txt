@@ -1,0 +1,25 @@
+// 1) View schema
+CALL db.schema.visualization();
+
+// 2) Inspect a few nodes/relationships
+MATCH (n) RETURN n LIMIT 25;
+
+// 3) Counts
+MATCH (l:Location) RETURN count(l) AS locations;
+MATCH ()-[r:TRIP]->() RETURN count(r) AS trips;
+
+// 4) Sample trips between two zones
+MATCH (a:Location {name: 161})-[t:TRIP]->(b:Location {name: 237})
+RETURN t.distance, t.fare, t.pickup_dt, t.dropoff_dt
+LIMIT 10;
+
+
+Test file:
+
+MATCH (n)
+RETURN count(n) AS num_nodes;
+O/P: 42
+
+MATCH ()-[r]->()
+RETURN count(r) AS num_edges;
+O/P: 1530
