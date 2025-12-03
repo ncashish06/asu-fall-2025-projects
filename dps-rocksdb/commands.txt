@@ -1,0 +1,6 @@
+docker build -t rocksdb-assignment .
+docker run -it --rm -v "$(pwd):/app" rocksdb-assignment bash
+mkdir -p test
+make clean
+make
+./tester
